@@ -1,3 +1,4 @@
+import Builder.Employee;
 import ChainResponsibility.AuthHandler;
 import ChainResponsibility.Handler;
 import ChainResponsibility.LogHandler;
@@ -18,5 +19,9 @@ public class Main
         h1.setNext(h2);
         h1.handle("auth");
         h1.handle("log");
+
+        Employee employee = new Employee.EmployeeBuilder("EmployeeName","EmployeeCompany").setHasBike(false).setHasCar(true).build();
+
+
     }
 }
