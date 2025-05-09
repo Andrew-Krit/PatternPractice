@@ -1,7 +1,9 @@
 import Builder.Employee;
 import ChainResponsibility.AuthHandler;
-import ChainResponsibility.Handler;
 import ChainResponsibility.LogHandler;
+import Decorator.Coffee;
+import Decorator.MilkDecorator;
+import Decorator.SimpleCoffee;
 import Proxy.ProxyService;
 import Strategy.ShopAccount;
 import Strategy.SteamAccount;
@@ -26,5 +28,9 @@ public class Main
         var service = new ProxyService();
         service.request();
 
+        Coffee coffee = new SimpleCoffee();
+        MilkDecorator milkDecorator = new MilkDecorator(coffee);
+
+        System.out.println(milkDecorator.getDescription());
     }
 }
