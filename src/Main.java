@@ -1,3 +1,4 @@
+import Adapter.AudioPlayer;
 import Builder.Employee;
 import ChainResponsibility.AuthHandler;
 import ChainResponsibility.LogHandler;
@@ -32,5 +33,12 @@ public class Main
         MilkDecorator milkDecorator = new MilkDecorator(coffee);
 
         System.out.println(milkDecorator.getDescription());
+
+        AudioPlayer audioPlayer = new AudioPlayer();
+
+        audioPlayer.play("mp3", "song.mp3");
+        audioPlayer.play("mp4", "video.mp4");
+        audioPlayer.play("vlc", "movie.vlc");
+        audioPlayer.play("avi", "film.avi");
     }
 }
