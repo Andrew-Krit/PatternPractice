@@ -2,6 +2,7 @@ import Builder.Employee;
 import ChainResponsibility.AuthHandler;
 import ChainResponsibility.Handler;
 import ChainResponsibility.LogHandler;
+import Proxy.ProxyService;
 import Strategy.ShopAccount;
 import Strategy.SteamAccount;
 
@@ -14,14 +15,16 @@ public class Main
         steamAccount.pay(25.35);
         shopAccount.pay(30.10);
 
-        Handler h1 = new AuthHandler();
-        Handler h2 = new LogHandler();
+        var h1 = new AuthHandler();
+        var h2 = new LogHandler();
         h1.setNext(h2);
         h1.handle("auth");
         h1.handle("log");
 
-        Employee employee = new Employee.EmployeeBuilder("EmployeeName","EmployeeCompany").setHasBike(false).setHasCar(true).build();
+        var employee = new Employee.EmployeeBuilder("EmployeeName","EmployeeCompany").setHasBike(false).setHasCar(true).build();
 
+        var service = new ProxyService();
+        service.request();
 
     }
 }
